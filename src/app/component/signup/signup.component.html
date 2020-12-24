@@ -5,8 +5,18 @@
     <form>
         <div class="form-group">
             <label for="User name">User name</label>
-            <input type="text" class="form-control" id="User name" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="text" class="form-control" id="User name" aria-describedby="emailHelp" placeholder="Enter user name">
             <small id="User name" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -15,17 +25,24 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Mobile no</label>
-            <input type="text" class="form-control" id="mobileNo" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="text" class="form-control" id="mobileNo" aria-describedby="emailHelp" placeholder="Enter mobile no">
             <small id="mobileNo" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+
+            <label for="inputAddress2" class="form-label">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+
+            <div class="form-group">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
