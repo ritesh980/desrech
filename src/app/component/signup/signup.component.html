@@ -2,45 +2,42 @@
     <div class="text-center mb-2">
         <h1> User registratin Form</h1>
     </div>
-    <form>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="User name">User name</label>
-            <input type="text" class="form-control" id="User name" aria-describedby="emailHelp" placeholder="Enter user name">
-            <small id="User name" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="text" class="form-control" formControlName="username" aria-describedby="emailHelp" placeholder="Enter user name">
         </div>
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    <input type="text" class="form-control" formControlName="fname" placeholder="First name" aria-label="First name">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    <input type="text" class="form-control" formControlName="lname" placeholder="Last name" aria-label="Last name">
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Mobile no</label>
-            <input type="text" class="form-control" id="mobileNo" aria-describedby="emailHelp" placeholder="Enter mobile no">
-            <small id="mobileNo" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="text" class="form-control" formControlName="phone" aria-describedby="emailHelp" placeholder="Enter mobile no">
         </div>
         <div class="form-group">
 
             <label for="inputAddress2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="text" class="form-control" formControlName="address" placeholder="Apartment, studio, or floor">
 
             <div class="form-group">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" formControlName="city">
             </div>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
