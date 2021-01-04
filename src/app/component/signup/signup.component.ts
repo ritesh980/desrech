@@ -1,7 +1,8 @@
-import { Component, OnInit,NgZone } from '@angular/core';
-import { FormGroup, FormBuilder, Validators ,ReactiveFormsModule} from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators} from "@angular/forms";
 import { Router } from '@angular/router';
-import { UserService} from '../../servic/user.service'
+import {RegistationService} from '../../services/registation.service'
+
 
 @Component({
   selector: 'app-signup',
@@ -9,35 +10,46 @@ import { UserService} from '../../servic/user.service'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+ 
+  registerForm: FormGroup;
+  showSuccess: boolean = false;
+  serverErrorMessage: any;
+  
+  
+  
 
-  userForm:any=FormGroup
+  constructor(private router: Router,
+     public formBuilder: FormBuilder,
+     private Registrationservice:RegistationService
+    ) {
 
-  constructor(public formBuilder: FormBuilder,
-    private router: Router,
-    private ngZone: NgZone,
-    private UserService: UserService) {
-
-      this.userForm = this.formBuilder.group({
+      this.registerForm = this.formBuilder.group({
         username: ['',Validators.required],
         fname: [''],
         lname: [''],
         email:[''],
+        phone:[' '],
         address:[''],
-        phone:[''],
         city:[''],
         password:['']
-      }) 
+      })
+
      }
 
+     onRegisterSubmit(registerForm: any){
+console.log(this.registerForm.value)
+this.Registrationservice.postUser(registerForm.value).subscribe(res=>{
+  this.showSuccess=true
+},err=>{
+if(err){
+  this.serverErrorMessage=err.error.join('<b>')
+}
+})
+
+
+
+     }
   ngOnInit(): void {
-  }
-  onSubmit(): any {
-    this.UserService.AddUser(this.userForm.value)
-    .subscribe(() => {
-        console.log('New rgistration is successfull!')
-        // this.ngZone.run(() => this.router.navigateByUrl('/singin'))
-      }, (err: any) => {
-        console.log(err);
-    });
+    
   }
 }
